@@ -4,7 +4,7 @@
 
 <template>   
   <main>
-    <div>TUKE Uni Project of recreating customer`s part, remarketing and rebranding of Air Drones</div>
+    <h1>Air Drones</h1>
   </main>
 </template>
 
