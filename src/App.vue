@@ -13,5 +13,4 @@
 </template>
 
 <style scoped>
-
 </style>
