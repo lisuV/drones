@@ -204,7 +204,7 @@ export default {
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  width: 338px;
+  width: 27%;
   position: absolute;
   top: 85px; /* Position dropdown list below the header menu */
   list-style-type: none; /* Remove default bullets */
@@ -216,7 +216,7 @@ export default {
   border-radius: 24px;
 }
 .dropdownProducts li{
-  padding: 15px 20px 15px 14px;
+  padding: 15px 15px;
 }
 .dropdownProducts li:first-child{
   border-radius: 24px 24px 0px 0px;
