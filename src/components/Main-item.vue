@@ -1,6 +1,8 @@
 <script>
-/*import droneImage from '@/icons/Drone1Pruducts.png'; // Adjust the path based on your project structure
-import sribogImage from '@/icons/SribogUAVProducts.png'; // Adjust the path based on your project structure
+import drone1Image from '@/icons/HomePage/products/DroneCore1.png'; // Adjust the path based on your project structure
+import sribogImage from '@/icons/HomePage/products/UAV.png'; // Adjust the path based on your project structure
+import drone2Image from '@/icons/HomePage/soon/DroneCore2.png';
+import dronePXImage from '@/icons/HomePage/soon/DroneCorePX.png';
 
 export default {
   data() {
@@ -8,64 +10,30 @@ export default {
       isDropdownOpenProducts: false,
       isDropdownOpenLanguages: false,
       products: [
-        { name: 'DroneCore 1', id: 1, img: droneImage, details: 'AI-driven autopilot with NVIDIA Jetson, Cube, and ESCs' },
-        { name: 'Stribog UAV', id: 2, img: sribogImage, details: 'Multi-purpose & open-architecture development platform ready for instant deployment' },
+        { name: 'DroneCore 1', id: 1, 
+        img: drone1Image, 
+        detail_1: 'NVIDIA Jetson Orin NX or Jetson Xavier NX & CubePilot', 
+        detail_2: '4x Electronic Speed Controllers',
+        detail_3: 'Rich connectivity for different payloads'},
+        { name: 'Stribog UAV', id: 2, 
+        img: sribogImage,
+        detail_1: 'Based on the newest DroneCore suite', 
+        detail_2: 'Full MAVLink support',
+        detail_3: 'SineSpine FOC ESC (up to 15% more efficiency)'},
       ],
-      languages: [
-        { name: 'EN', id: 1, actual: false},
-        { name: 'SK', id: 2, actual: true},
-        { name: 'UA', id: 3, actual: false},
-      ],
-      actualLanguage: "",
-      selectLenguages: [],
-      updateLenguages: [],
+      productsSoon: [
+      { name: 'DroneCore 2', id: 1, 
+        img: drone2Image, 
+        details: 'DroneCore natively supported by Ardupilot', 
+      },
+        { name: 'DroneCore PX', id: 2, 
+        img: dronePXImage,
+        details: 'DroneCore compatible with Pixhawk PX4 FMU', 
+        },
+      ]
     };
   },
-  created (){
-    this.actualLanguage = this.displayActualLenguage();
-  },
-  methods: {
-    openDropdownProducts() {
-      this.isDropdownOpenProducts = true;
-    },
-    closeDropdownProducts() {
-      this.isDropdownOpenProducts = false;
-    },
-    openDropdownLanguages() {
-      this.isDropdownOpenLanguages = true;
-    },
-    closeDropdownLanguages() {
-      this.isDropdownOpenLanguages = false;
-    },
-    displayActualLenguage() {
-      this.selectLenguages=[];
-      this.languages.forEach(leng => {
-        if(leng.actual==true){
-          this.actualLanguage = leng.name;
-        }
-        if(leng.actual==false){
-          this.selectLenguages.push(leng);
-        }
-      });
-      return this.actualLanguage;
-    },
-    changeActualLenguage(id){
-      //var updateLenguage = [];
-      this.languages.forEach(leng => {
-        if(leng.id==id){
-          leng.actual = true;
-          this.updateLenguages.push(leng);
-        }
-        if(leng.id!=id){
-          leng.actual = false;
-          this.updateLenguages.push(leng);
-        }
-      });
-      this.languages.lenght = this.updateLenguages;
-      return this.displayActualLenguage(); 
-    }
-  }
-};*/
+};
 </script>
 
 <template>   
@@ -74,7 +42,7 @@ export default {
       <h1 class="main-text">Scalable drones & autopilots</h1>
     </div>
     
-      <ul class="quick-access">
+    <ul class="quick-access">
         <li class="quick-access-product-container">
           <div class="quick-access-info"> 
             <div class=".quick-access-img-block">
@@ -113,9 +81,9 @@ export default {
             <div class="quick-access-button-quote">Get a quote</div>
           </div>
         </li>
-      </ul>
-      <div class="benefits">
-        <h1 class="main-header"> Benefits</h1>
+    </ul>
+    <div class="benefits">
+        <h1 class="main-header">Benefits</h1>
         <p class="benefits-main-details">DroneCore autopilots are one-stop solution for UAS developers combining carrier board, companion computer, rich connectivity, and ESCs (v1).</p>
                
         <div class="benefits-items">
@@ -132,11 +100,62 @@ export default {
             <p class="benefits-item-name">Resilience</p>
           </div>
         </div>
-      </div>
+    </div>
 
-     
-     
-    
+    <div class="products">
+      <h1 class="main-header">Products</h1>
+      <ul class="products-list">
+        <li v-for="product in products" :key="product.id">
+          <div class="products-item">
+            <div class="products-item-text">
+              <div>
+                <div class="products-item-name"> {{ product.name }}</div>
+                <ul class="products-item-details">
+                  <li>{{ product.detail_1 }}</li> 
+                  <li>{{ product.detail_2 }}</li>
+                  <li>{{ product.detail_3 }}</li> 
+                </ul>
+              </div>
+              <div class="quick-access-buttons">
+                <div class="quick-access-button-details">See details</div>
+                <div class="quick-access-button-quote">Get a quote</div>
+              </div>
+            </div>
+            <img :src="product.img" alt="Product Image" class="products-item-img">
+          </div>
+        </li>
+        <li>
+          <div class="products-item">
+            <div class="products-item-text">
+              <div>
+                 <div class="products-item-name">Custom solutions</div>
+              <p class="products-item-details">We develop custom hardware and software solutions for autonomous UASs</p>
+              </div>
+              <div class="quick-access-buttons">
+                <div class="quick-access-button-quote">Get a quote</div>
+              </div>
+            </div>
+            <img src="/src/icons/HomePage/products/custom.png" alt="Product Image" class="products-item-img custom">
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="products soon">
+      <h1 class="main-header">Soon</h1>
+      <ul class="products-list">
+        <li v-for="product in productsSoon" :key="product.id">
+          <div class="products-item soon-item">
+            <div class="products-item-text">
+              <div class="products-item-name"> {{ product.name }}</div>
+              <p class="products-item-details soon-item-datails">{{ product.details }}</p> 
+              <div class="products-soon-coming">Coming soon</div>
+            </div>
+            <img :src="product.img" alt="Product Image" class="products-item-img">
+          </div>
+        </li>
+      </ul>
+    </div>
     
   </main>
 </template>
@@ -277,7 +296,7 @@ export default {
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
-  margin-top: 190px;
+  margin-top: 100px;
 }
 .benefits-main-details{
   color: #ADADAD;
@@ -298,7 +317,6 @@ export default {
   gap: 7%;
   align-items: start;
   padding-top: 80px;
-  padding-bottom: 190px;
   width: -webkit-fill-available;
   flex-direction: row;
   flex-wrap: wrap;
@@ -329,12 +347,88 @@ export default {
   height: 50px;
 }
 
-@media (max-width: 768px) {
-  .benefits-item {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
+.products{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 190px;
+}
+.products-list{
+  display:flex;
+  flex-direction: column;
+  margin-left: 6.6%;
+  margin-right: 6.6%;
+  list-style-type: none;
+  margin-top: 50px;
+  width: -webkit-fill-available;
+  gap: 30px;
+}
+.products-item{
+  flex-shrink: 0;
+  border-radius: 24px;
+  background: #FFF;
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-top: 45px;
+  padding-bottom: 45px;
+  padding-right: 2.5%;
+}
+.products-item-text{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 35px;
+  padding-left: 7.6%;
+  margin-bottom: 35px;
+  max-width: 60%;
+}
+.products-item-name{
+  color: #121212;
+  font-family: "Montserrat", sans-serif;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.products-item-details{
+  color: #ADADAD;
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  list-style-type:disc;
+  margin-bottom: 56px;
+  padding-top: 25px;
+  word-wrap: break-word !important;
+}
+.products-item-img{
+  width: 40%;
+  height: auto;
+}
+.custom{
+  width: 35%;
+  height: auto;
+  padding-right: 5%;
 }
 
+.soon-item{
+  align-items: center;
+}
+
+.soon-item-datails{
+  margin-bottom: 24px;
+}
+.products-soon-coming{
+  color: #121212;
+  font-family: Montserrat;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
 
 </style>
