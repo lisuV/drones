@@ -3,6 +3,9 @@ import drone1Image from '@/icons/HomePage/products/DroneCore1.png'; // Adjust th
 import sribogImage from '@/icons/HomePage/products/UAV.png'; // Adjust the path based on your project structure
 import drone2Image from '@/icons/HomePage/soon/DroneCore2.png';
 import dronePXImage from '@/icons/HomePage/soon/DroneCorePX.png';
+import FlorianImage from '@/icons/HomePage/testimonials/Florian.png';
+import DavidImage from '@/icons/HomePage/testimonials/Dawid.png';
+
 
 export default {
   data() {
@@ -30,9 +33,49 @@ export default {
         img: dronePXImage,
         details: 'DroneCore compatible with Pixhawk PX4 FMU', 
         },
-      ]
+      ],
+      testimonials: [
+      { name: 'Florian Seibel', id: 1,
+        position: 'CEO at Quantum Systems',
+        img: FlorianImage, 
+        details: '“Great and smart team. Airvolute runs that extra mile to find innovative solutions to tough challenges.”', 
+      },
+        { name: 'Dawid Zielonka', id: 2,
+        position: 'Technical Director at Reakto',
+        img: DavidImage,
+        details: '“We selected Airvolute as our trusted partner to power the brains of our security drones, and we have been extremely satisfied with their contributions in achieving compactness.”', 
+        },
+      ],
+      actualTestimonial: {
+        name: 'Florian Seibel', id: 1,
+        position: 'CEO at Quantum Systems',
+        img: FlorianImage, 
+        details: '“Great and smart team. Airvolute runs that extra mile to find innovative solutions to tough challenges.”', 
+      },
     };
   },
+  created (){
+    
+  },
+  methods: {
+    nextTestimonial() {
+      let index = this.testimonials.indexOf(this.actualTestimonial)
+      if(index === -1) {index=0}
+      if (index === this.testimonials.length - 1) {
+        this.actualTestimonial = this.testimonials[0]
+      } else {
+        this.actualTestimonial = this.testimonials[index + 1]
+      }
+    },
+    previousTestimonial() {
+      const index = this.testimonials.indexOf(this.actualTestimonial)
+      if (index === 0) {
+        this.actualTestimonial = this.testimonials[this.testimonials.length - 1]
+      } else {
+        this.actualTestimonial = this.testimonials[index - 1]
+      }
+    }
+  }
 };
 </script>
 
@@ -82,10 +125,9 @@ export default {
           </div>
         </li>
     </ul>
-    <div class="benefits">
+    <div class="benefits slide">
         <h1 class="main-header">Benefits</h1>
-        <p class="benefits-main-details">DroneCore autopilots are one-stop solution for UAS developers combining carrier board, companion computer, rich connectivity, and ESCs (v1).</p>
-               
+        <p class="benefits-main-details">DroneCore autopilots are one-stop solution for UAS developers combining carrier board, companion computer, rich connectivity, and ESCs (v1).</p>      
         <div class="benefits-items">
           <div class="benefits-item">
             <img class="benefits-icon" src="/src/icons/HomePage/benefits/wallet.png">
@@ -102,7 +144,7 @@ export default {
         </div>
     </div>
 
-    <div class="products">
+    <div class="products slide">
       <h1 class="main-header">Products</h1>
       <ul class="products-list">
         <li v-for="product in products" :key="product.id">
@@ -141,7 +183,7 @@ export default {
       </ul>
     </div>
 
-    <div class="products soon">
+    <div class="slide soon">
       <h1 class="main-header">Soon</h1>
       <ul class="products-list">
         <li v-for="product in productsSoon" :key="product.id">
@@ -155,6 +197,39 @@ export default {
           </div>
         </li>
       </ul>
+    </div>
+
+    <div class="testimonials slide">
+      <h1 class="main-header">Testimonials</h1>
+      <div class="testimonials-conteiner">
+        <img @click="previousTestimonial" src="/src/icons/HomePage/testimonials/0prev.png">
+        <div class="testimonials-conteiner-info">
+          <div class="testimonials-conteiner-info-text">{{ actualTestimonial.details }}</div>
+          <div class="testimonials-conteiner-info-author">
+            <img :src="actualTestimonial.img" class="testimonials-conteiner-info-author-img">
+            <div class="testimonials-conteiner-info-author-text">
+              <div class="testimonials-conteiner-info-author-text-name">{{ actualTestimonial.name }}</div>
+              <div class="testimonials-conteiner-info-author-text-position">{{ actualTestimonial.position }}</div>
+            </div>
+          </div>
+        </div>       
+        <img @click="nextTestimonial" src="/src/icons/HomePage/testimonials/0next.png">
+      </div>
+    </div>
+    <div class="slide ground-control">
+      <img class="ground-control-img" src="/src/icons/HomePage/GroungControl.png">
+      <div class="ground-control-text">
+        <h1 class="main-header">Ground control</h1>
+        <div class="ground-control-text-details">
+          Bespoke ground control system compatible with
+          <ul>
+            <li>TAK – Team Awareness Kit</li>
+            <li>Custom QGroundControl</li>
+            <li>Mission Planner</li>
+          </ul>
+        </div>
+      </div>
+      
     </div>
     
   </main>
@@ -171,6 +246,13 @@ export default {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+.slide{
+  margin-top: 190px;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
 }
 .bg-img {
   background-image: url('/src/icons/HomePage/Background Page.png');
@@ -292,10 +374,6 @@ export default {
 }
 
 .benefits{
-  display:flex;
-  flex-direction: column;
-  align-items: center;
-  flex-wrap: wrap;
   margin-top: 100px;
 }
 .benefits-main-details{
@@ -347,13 +425,6 @@ export default {
   height: 50px;
 }
 
-.products{
-  display:flex;
-  flex-direction: column;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-top: 190px;
-}
 .products-list{
   display:flex;
   flex-direction: column;
@@ -418,17 +489,96 @@ export default {
 .soon-item{
   align-items: center;
 }
-
 .soon-item-datails{
   margin-bottom: 24px;
 }
 .products-soon-coming{
   color: #121212;
-  font-family: Montserrat;
+  font-family: "Montserrat", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
 }
 
+.testimonials{
+  width: -webkit-fill-available;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+.testimonials-conteiner{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8%;
+  margin-top: 79px;
+  height: 254px;
+}
+.testimonials-conteiner-info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 38px;
+}
+.testimonials-conteiner-info-text{
+  color: #121212;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  height: max-content;
+}
+.testimonials-conteiner-info-author{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap:3.4%
+}
+.testimonials-conteiner-info-author-img{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover; /* зберігає пропорції та заповнює вказаний розмір */
+}
+.testimonials-conteiner-info-author-text{
+  display: flex;
+  flex-direction: column;
+  align-items:start;
+  gap: 4px;
+}
+.testimonials-conteiner-info-author-text-name{
+  color: #000;
+  font-family:  "Montserrat", sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.testimonials-conteiner-info-author-text-position{
+  color: #ADADAD;
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  width: max-content;
+}
+.slide.ground-control{
+  display:flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: -webkit-fill-available;
+  margin-left: 6.6%;
+  margin-right: 6.6%;
+  gap: 5.6%;
+}
+.ground-control-img{
+  width: 53%;
+  height: auto;
+}
 </style>
