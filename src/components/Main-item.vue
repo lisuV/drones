@@ -1,3 +1,7 @@
+<script setup>
+  import ContactUs from './ContactUs-item.vue'
+</script>
+
 <script>
 import drone1Image from '@/icons/HomePage/products/DroneCore1.png'; // Adjust the path based on your project structure
 import sribogImage from '@/icons/HomePage/products/UAV.png'; // Adjust the path based on your project structure
@@ -5,8 +9,6 @@ import drone2Image from '@/icons/HomePage/soon/DroneCore2.png';
 import dronePXImage from '@/icons/HomePage/soon/DroneCorePX.png';
 import FlorianImage from '@/icons/HomePage/testimonials/Florian.png';
 import DavidImage from '@/icons/HomePage/testimonials/Dawid.png';
-
-
 export default {
   data() {
     return {
@@ -240,6 +242,7 @@ export default {
         </div>
     </div>
     
+    <ContactUs></ContactUs>
   </main>
 </template>
 
@@ -619,15 +622,5 @@ li {
 }
 .partners-icon:nth-child(2){
   justify-self: center; /* Здійснює центрування другого об'єкта */
-}
-
-@media (max-width: 768px) {
-  .benefits-item {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-  .partners {
-    grid-template-columns: 1fr;
-  }
 }
 </style>
