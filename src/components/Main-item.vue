@@ -603,7 +603,7 @@ export default {
 .ground-control-text-details{
   margin-top: 32px;
 }
-li {
+.ground-control-text-details li {
   list-style-type:disc;
 }
 
