@@ -229,7 +229,15 @@ export default {
           </ul>
         </div>
       </div>
-      
+    </div>
+
+    <div class="partners slide">
+        <h1 class="main-header">Our partners</h1>
+        <div class="partners-items">
+          <img class="partners-icon" src="/src/icons/HomePage/partners/AUVSI.png">
+          <img class="partners-icon" src="/src/icons/HomePage/partners/nvidia.png">
+          <img class="partners-icon" src="/src/icons/HomePage/partners/adrupilot.png">
+        </div>
     </div>
     
   </main>
@@ -594,5 +602,32 @@ export default {
 }
 li {
   list-style-type:disc;
+}
+
+.partners{
+  justify-content: center;
+  width: -webkit-fill-available;
+  margin-left: 15%;
+  margin-right: 11%;
+
+}
+.partners-items{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding-top: 80px;
+  grid-gap: 10px; /* простір між елементами */
+}
+.partners-icon:nth-child(2){
+  justify-self: center; /* Здійснює центрування другого об'єкта */
+}
+
+@media (max-width: 768px) {
+  .benefits-item {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .partners {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
