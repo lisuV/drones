@@ -69,12 +69,7 @@ export default {
 </script>
 
 <template>
-  <!-- connect fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Michroma.Monserrat -->
-    <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  <!-- connect fonts -->
+
 
   <header class="header">
     <div class="logo-container">
@@ -209,7 +204,7 @@ export default {
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  width: 338px;
+  width: 27%;
   position: absolute;
   top: 85px; /* Position dropdown list below the header menu */
   list-style-type: none; /* Remove default bullets */
@@ -221,7 +216,7 @@ export default {
   border-radius: 24px;
 }
 .dropdownProducts li{
-  padding: 15px 20px 15px 14px;
+  padding: 15px 15px;
 }
 .dropdownProducts li:first-child{
   border-radius: 24px 24px 0px 0px;
