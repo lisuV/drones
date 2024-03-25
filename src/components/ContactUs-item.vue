@@ -95,8 +95,6 @@ export default {
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
-  margin-left: 6.6%;
-  margin-right: 6.6%;
   width: -webkit-fill-available;
 }
 
@@ -108,6 +106,8 @@ export default {
   align-items: start;
   width: -webkit-fill-available;
   gap: 24px;
+  margin-left: 6.6%;
+  margin-right: 6.6%;
 }
 .input-group{
     width: 100%;
