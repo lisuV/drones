@@ -220,7 +220,7 @@ export default {
       <img class="ground-control-img" src="/src/icons/HomePage/GroungControl.png">
       <div class="ground-control-text">
         <h1 class="main-header">Ground control</h1>
-        <div class="ground-control-text-details">
+        <div class="ground-control-text-details text_3">
           Bespoke ground control system compatible with
           <ul>
             <li>TAK – Team Awareness Kit</li>
@@ -272,6 +272,14 @@ export default {
   line-height: normal;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   text-align: center;
+}
+.text_3{
+  color: #ADADAD;
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 
 .quick-access{
@@ -580,5 +588,11 @@ export default {
 .ground-control-img{
   width: 53%;
   height: auto;
+}
+.ground-control-text-details{
+  margin-top: 32px;
+}
+li {
+  list-style-type:disc;
 }
 </style>
