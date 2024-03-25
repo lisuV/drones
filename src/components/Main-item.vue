@@ -218,7 +218,7 @@ export default {
         <img @click="nextTestimonial" src="/src/icons/HomePage/testimonials/0next.png">
       </div>
     </div>
-    <div class="slide ground-control">
+    <div class="ground-control">
       <img class="ground-control-img" src="/src/icons/HomePage/GroungControl.png">
       <div class="ground-control-text">
         <h1 class="main-header">Ground control</h1>
@@ -586,6 +586,7 @@ export default {
   width: max-content;
 }
 .ground-control{
+  margin-top: 190px;
   display:flex;
   flex-direction: row;
   align-items: flex-start;
