@@ -109,15 +109,15 @@ export default {
   margin-left: 6.6%;
   margin-right: 6.6%;
 }
-.input-group{
-    width: 100%;
+.input-group {
+  width: 100%;
 }
 
 .input-field {
   border-radius: 8px;
   border: 1px solid rgba(18, 18, 18, 0.8);
   padding: 10px 10px 10px 10px;
-  width: 30%;
+  width: 35%;
   color: #121212;
   font-family: 'Montserrat', sans-serif;
   font-size: 20px;
@@ -143,7 +143,7 @@ export default {
 textarea.input-field {
   height: 160px;
   resize: none;
-  width: 40%;
+  width: 47%;
 }
 
 button {
