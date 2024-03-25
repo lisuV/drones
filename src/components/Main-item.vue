@@ -585,7 +585,7 @@ export default {
   line-height: normal;
   width: max-content;
 }
-.slide.ground-control{
+.ground-control{
   display:flex;
   flex-direction: row;
   align-items: flex-start;
